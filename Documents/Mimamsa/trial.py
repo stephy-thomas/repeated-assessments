@@ -7,6 +7,6 @@ if uploaded_file is not None:
     df=pd.read_csv(uploaded_file)
     st.success('File Uploded successfully')
     df=pd.DataFrame(df)
-    df['adm_no']=df['Email address'].str.extract(r'(SF\d{4}|\d{5})@'.flags=re.IGNORECASE)
+    df['adm_no']=df['Email address'].str.extract(r'(SF\d{4}|\d{5})@',flags=re.IGNORECASE)
     df['adm_no']=df['adm_no'].str.upper()
     st.write(df['adm_no'].value_counts()
