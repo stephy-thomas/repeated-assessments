@@ -13,8 +13,8 @@ if uploaded_file is not None:
     num_cases=st.number_input("Enter the number of tests to be considred",min_value=1,max_value=30,
     value=10,step=1)
     def calculate_average(group):
-        best_marks=group.nlarges(num_cases,'Grade/12.00')
-        avera=best_marks.sum()/mum_cases
-    result=df.groupby('adm_no').apply(caluculate_average).reset_index()
+        best_marks=group.nlargest(num_cases,'Grade/12.00')
+        avera=best_marks.sum()/num_cases
+    result=df.groupby('adm_no').apply(calculate_average).reset_index()
     st.write(result['adm_no','First name','Grade/12.00'])
     
