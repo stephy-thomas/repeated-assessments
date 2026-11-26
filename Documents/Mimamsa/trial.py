@@ -15,6 +15,6 @@ if uploaded_file is not None:
     def calculate_average(group):
         best_marks=group.nlarges(num_cases,'Grade/12.00')
         avera=best_marks.sum()/mum_cases
-    result=df.groupby('adm_no')['Grade/12.00'].apply(caluculate_average).reset_index()
+    result=df.groupby('adm_no').apply(caluculate_average).reset_index()
     st.write(result['adm_no','First name','Grade/12.00'])
     
